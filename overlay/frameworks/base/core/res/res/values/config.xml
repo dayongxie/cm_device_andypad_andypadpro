@@ -24,9 +24,6 @@
     <!-- Indicate whether the SD card is accessible without removing the battery. -->
     <bool name="config_batterySdCardAccessibility">true</bool>
 
-    <!-- Enable the screen-off animation -->
-    <bool name="config_enableScreenOffAnimation">false</bool>
-
     <!-- Configure rotary bottom margin -->
     <integer name="config_rotaryMarginBottomDIP">60</integer>
 

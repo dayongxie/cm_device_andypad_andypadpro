@@ -32,3 +32,4 @@ WIFI_DRIVER_MODULE_NAME     := "wlan"
 BOARD_HAVE_BLUETOOTH := true
 
 BOARD_EGL_CFG := device/rockchip/rk2918/egl.cfg
+BOARD_NO_RGBX_8888 := true
