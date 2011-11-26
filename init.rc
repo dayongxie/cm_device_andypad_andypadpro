@@ -315,7 +315,7 @@ on boot
     setprop net.tcp.buffersize.gprs    4092,8760,11680,4096,8760,11680
 
     chown system graphics /dev/galcore
-    chown 0666 /dev/galcore
+    chmod 0666 /dev/galcore
     chown system camera /dev/video0
     chmod 0660 /dev/video0
     chown system camera /dev/pmem_cam
