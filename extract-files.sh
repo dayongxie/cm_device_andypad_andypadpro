@@ -46,6 +46,8 @@ mkdir -p ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 
 	adb pull /system/bin/usb_modeswitch ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/usb_modeswitch
 	adb pull /system/bin/akmd8975 ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/akmd8975
+	adb pull /system/bin/hdmi_init ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/hdmi_init
+	adb pull /system/bin/shutdown ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/shutdown
 
 
 	adb pull /system/etc/rockchip_bq27510.bqfs ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rockchip_bq27510.bqfs
@@ -117,7 +119,6 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libjpeghwdec.so:system/lib/libjpeghwdec.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libjpeghwenc.so:system/lib/libjpeghwenc.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libvpu.so:system/lib/libvpu.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/usb_modeswitch:system/bin/usb_modeswitch \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libreference-cdma-sms.so:system/lib/libreference-cdma-sms.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libreference-ril.so:system/lib/libreference-ril.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libril-rk29-dataonly.so:system/lib/libril-rk29-dataonly.so \\
@@ -131,8 +132,9 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/sd8686.bin:system/etc/firmware/sd8686.bin \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/sd8686_helper.bin:system/etc/firmware/sd8686_helper.bin \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/softmac:system/etc/firmware/softmac \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/data.patch.hw2_0.bin:system/etc/firmware/data.patch.hw2_0.bin
-
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/data.patch.hw2_0.bin:system/etc/firmware/data.patch.hw2_0.bin \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/hdmi_init:system/bin/hdmi_init \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/shutdown:system/bin/shutdown
 
 EOF
 

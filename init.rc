@@ -330,6 +330,10 @@ on boot
     chown system system /dev/input/event0
     chown system system /dev/input/event1
     chown system system /dev/input/event2
+    chown system system /dev/akm8975_dev
+    chown system system /dev/akm8975_aot
+    chown system system /dev/gsensor
+    chown system system /dev/lightsensor
     chown system system /dev/mma8452_daemon
 
     chown system system /sys/class/backlight/rk28_bl/brightness
@@ -483,3 +487,30 @@ service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 -c/data/misc/wi
 service dhcpcd_wlan0 /system/bin/dhcpcd -ABKL wlan0
     disabled
     oneshot
+
+
+service init_bq27510 /init_battery.sh
+    oneshot
+
+#-------------------------------------------------------#
+# akmd
+service akmd /system/bin/akmd8975
+	user system
+	group system
+	oneshot
+#-------------------------------------------------------#
+#hdmi
+service hdmi /system/bin/hdmi_init
+        user system
+        group system
+        oneshot
+
+# Clean shutdown
+service reboot /system/bin/shutdown -r
+disabled
+oneshot
+
+service poweroff /system/bin/shutdown
+disabled
+
+
