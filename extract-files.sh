@@ -45,6 +45,8 @@ mkdir -p ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 	adb pull /system/lib/libril-rk29-dataonly.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/
 
 	adb pull /system/bin/usb_modeswitch ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/usb_modeswitch
+	adb pull /system/bin/akmd8975 ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/akmd8975
+
 
 	adb pull /system/etc/rockchip_bq27510.bqfs ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rockchip_bq27510.bqfs
 	adb pull /system/etc/rockchip_bq27510.dffs ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rockchip_bq27510.dffs
@@ -108,15 +110,16 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/gameloft_info.xml:system/etc/gameloft_info.xml \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/media_profiles.xml:system/etc/media_profiles.xml \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/usb_modeswitch.sh:system/etc/usb_modeswitch.sh \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/akmd8975:system/bin/akmd8975 \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/rockchip_bq27510.bqfs:system/etc/rockchip_bq27510.bqfs \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/rockchip_bq27510.dffs:system/etc/rockchip_bq27510.dffs \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libcamera.so:system/lib/libcamera.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libjpeghwdec.so:system/lib/libjpeghwdec.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libjpeghwenc.so:system/lib/libjpeghwenc.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libvpu.so:system/lib/libvpu.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/usb_modeswitch:/system/bin/usb_modeswitch \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libreference-cdma-sms.so:/system/lib/libreference-cdma-sms.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libreference-ril.so:/system/lib/libreference-ril.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/usb_modeswitch:system/bin/usb_modeswitch \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libreference-cdma-sms.so:system/lib/libreference-cdma-sms.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libreference-ril.so:system/lib/libreference-ril.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libril-rk29-dataonly.so:system/lib/libril-rk29-dataonly.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/athtcmd_ram.bin:system/etc/firmware/athtcmd_ram.bin \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/athwlan.bin.z77:system/etc/firmware/athwlan.bin.z77 \\
