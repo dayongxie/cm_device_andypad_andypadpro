@@ -1,5 +1,6 @@
 #!/bin/sh
 cd boot.img-data
+cp ../../init.rc .
 mkdir data
 mkdir dev
 mkdir proc

@@ -70,6 +70,30 @@ mkdir -p ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 	adb pull /system/etc/bluez/bcm432x/BCM4329B1_TestOnly_0237_26MHz_SEMCO_B23.hcd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/BCM4329B1_TestOnly_0237_26MHz_SEMCO_B23.hcd
 
 
+#these might not be needed.. need to experiment :)
+	adb pull /system/bin/i2c ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/i2c
+	adb pull /system/bin/patch_plus ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/patch_plus
+	adb pull /system/bin/pretest ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/pretest
+	adb pull /system/bin/usb_modeswitch ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/usb_modeswitch
+	adb pull /system/bin/wlarm_android ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/wlarm_android
+
+	adb pull /system/framework/android.rockchip.hdmi.jar ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/android.rockchip.hdmi.jar
+	adb pull /system/framework/android.rockchip.manager.jar ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/android.rockchip.manager.jar
+	adb pull /system/framework/android.rockchip.tvout.jar ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/android.rockchip.tvout.jar
+	adb pull /system/framework/android.rockchip.update.jar ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/android.rockchip.update.jar
+
+	adb pull /system/lib/librockchip_hdmi_jni.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/android.rockchip.update.jar
+	adb pull /system/lib/librockchip_tvout_jni.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/android.rockchip.update.jar
+	adb pull /system/lib/librockchip_update_jni.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/android.rockchip.update.jar
+
+	adb pull /system/xbin/dhdutil ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/dhdutil
+	adb pull /system/xbin/io ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/io
+	adb pull /system/xbin/script_parse ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/script_parse
+#end of these might not be needed..
+
+
+
+
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__MANUFACTURER__/$MANUFACTURER/g > ../../../vendor/$MANUFACTURER/$DEVICE/device-vendor-blobs.mk
 # Copyright (C) 2010 The Android Open Source Project
 #
@@ -112,6 +136,14 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/media_profiles.xml:system/etc/media_profiles.xml \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/usb_modeswitch.sh:system/etc/usb_modeswitch.sh \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/akmd8975:system/bin/akmd8975 \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/i2c:system/bin/i2c  \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/patch_plus:system/bin/patch_plus \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/pretest:system/bin/pretest \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/usb_modeswitch:system/bin/usb_modeswitch \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/wlarm_android:system/bin/wlarm_android \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/dhdutil:system/xbin/dhdutil \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/io:system/xbin/io \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/script_parse:system/xbin/script_parse \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/rockchip_bq27510.bqfs:system/etc/rockchip_bq27510.bqfs \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/rockchip_bq27510.dffs:system/etc/rockchip_bq27510.dffs \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libcamera.so:system/lib/libcamera.so \\
@@ -121,6 +153,13 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libreference-cdma-sms.so:system/lib/libreference-cdma-sms.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libreference-ril.so:system/lib/libreference-ril.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libril-rk29-dataonly.so:system/lib/libril-rk29-dataonly.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/librockchip_hdmi_jni.so:system/lib/librockchip_hdmi_jni.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/librockchip_tvout_jni.so:system/lib/librockchip_tvout_jni.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/librockchip_update_jni.so:system/lib/librockchip_update_jni.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/android.rockchip.hdmi.jar:system/framework/android.rockchip.hdmi.jar \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/android.rockchip.manager.jar:system/framework/android.rockchip.manager.jar \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/android.rockchip.tvout.jar:system/framework/android.rockchip.tvout.jar\\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/android.rockchip.update.jar:system/framework/android.rockchip.update.jar \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/athtcmd_ram.bin:system/etc/firmware/athtcmd_ram.bin \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/athwlan.bin.z77:system/etc/firmware/athwlan.bin.z77 \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/calData_ar6102_15dBm.bin:system/etc/firmware/calData_ar6102_15dBm.bin \\
