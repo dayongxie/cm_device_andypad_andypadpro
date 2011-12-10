@@ -87,3 +87,32 @@
 /dev/pmem_venc            0660   system     audio
 
 /sys/devices/virtual/usb_composite/*   enable      0664  root   system
+
+
+/dev/galcore              0666   system     graphics
+/dev/video0               0660   system     camera
+/dev/video1               0660   system     camera
+/dev/video2               0660   system     camera
+/dev/pmem_cam             0660   system     camera
+/dev/vpu                  0660   system     system
+/dev/vpu_mem              0666   system     system
+
+# for Sensor HAL
+/dev/akm8973              0660   system     system
+/dev/accelerometer        0660   system     system
+
+# for GPS
+#/dev/ttyS3                0600   gps        gps
+
+# for BT
+/dev/vflash               0660   bluetooth  bluetooth
+/dev/ttyS0                0660   bluetooth  bluetooth
+/dev/ttyS2                0660   bluetooth  bluetooth
+
+# for radio
+/dev/ttyUSB0              0660   radio		radio
+/dev/ttyUSB1              0660   radio		radio
+/dev/ttyUSB2              0660   radio		radio
+/dev/ttyUSB3              0660   radio		radio
+/dev/ttyUSB4              0660   radio		radio
+/dev/ttyUSB5              0660   radio		radio
