@@ -305,9 +305,31 @@ on boot
     chown system system /sys/kernel/ipv4/tcp_rmem_def
     chown system system /sys/kernel/ipv4/tcp_rmem_max
     chown root radio /proc/cmdline
+    chown system system /sys/class/backlight/rk28_bl/brightness
 
-# Define TCP buffer sizes for various networks
-#   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
+    # bluetooth power up/down interface
+    chmod 0660 /dev/ttyS0
+    chmod 0660 /dev/ttyS2
+    chmod 0660 /dev/vflash
+    chown bluetooth bluetooth /dev/vflash
+    chown bluetooth bluetooth /dev/ttyS2
+    chown bluetooth bluetooth /dev/ttyS0
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
+    chmod 0777 /sys/class/rfkill/rfkill0/state 
+
+    # wisky qumeng 20110705 HDMI
+    chmod 777 /sys/class/hdmi/hdmi-0/enable
+    chmod 777 /sys/class/hdmi/hdmi-0/state
+
+    # for HDMI facility
+    chown system system /dev/anx7150
+
+    # for TvOut facility
+    chown system system /dev/rk1000_TVOUT
+
+    # Define TCP buffer sizes for various networks
+    #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
     setprop net.tcp.buffersize.default 4096,87380,110208,4096,16384,110208
     setprop net.tcp.buffersize.wifi    4095,87380,110208,4096,16384,110208
     setprop net.tcp.buffersize.umts    4094,87380,110208,4096,16384,110208
@@ -318,6 +340,8 @@ on boot
     chmod 0666 /dev/galcore
     chown system camera /dev/video0
     chmod 0660 /dev/video0
+    chown system camera /dev/video1
+    chmod 0660 /dev/video1
     chown system camera /dev/pmem_cam
     chmod 0660 /dev/pmem_cam
     chown system system /dev/vpu_mem
@@ -405,6 +429,7 @@ service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-sys
     onrestart restart netd
 
 service media /system/bin/mediaserver
+    socket vpu_server stream 666 media media
     user media
     group system audio camera graphics inet net_bt net_bt_admin net_raw
     ioprio rt 4
@@ -492,6 +517,24 @@ service dhcpcd_wlan0 /system/bin/dhcpcd -ABKL wlan0
 service init_bq27510 /init_battery.sh
     oneshot
 
+service hciattach /system/bin/hciattach -n -s 1500000 /dev/ttyS2 bcm4329 1500000 flow
+    console
+    user bluetooth
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+service patch_plus /system/bin/brcm_patchram_plus --patchram /etc/bluez/bcm432x/BCM4329B1_TestOnly_0237_26MHz_SEMCO_B23.hcd --baudrate 1500000 --enable_hci /dev/ttyS2
+    console
+    user bluetooth
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+service wlan_loader /system/bin/wlan_loader
+    oneshot
+    disabled
+
 #-------------------------------------------------------#
 # akmd
 service akmd /system/bin/akmd8975
@@ -512,5 +555,6 @@ oneshot
 
 service poweroff /system/bin/shutdown
 disabled
+
 
 

@@ -47,8 +47,9 @@ mkdir -p ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 	adb pull /system/bin/usb_modeswitch ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/usb_modeswitch
 	adb pull /system/bin/akmd8975 ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/akmd8975
 	adb pull /system/bin/hdmi_init ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/hdmi_init
-	adb pull /system/bin/shutdown ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/shutdown
-
+	adb pull /system/bin/wlan_loader ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/wlan_loader
+	adb pull /system/bin/wlan_mac ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/wlan_mac
+	adb pull /system/bin/brcm_patchram_plus ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/brcm_patchram_plus
 
 	adb pull /system/etc/rockchip_bq27510.bqfs ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rockchip_bq27510.bqfs
 	adb pull /system/etc/rockchip_bq27510.dffs ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/rockchip_bq27510.dffs
@@ -66,9 +67,7 @@ mkdir -p ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 	adb pull /system/etc/gameloft_info.xml ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/gameloft_info.xml
 	adb pull /system/etc/media_profiles.xml ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/media_profiles.xml
 	adb pull /system/etc/usb_modeswitch.sh ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/usb_modeswitch.sh
-
-
-
+	adb pull /system/etc/bluez/bcm432x/BCM4329B1_TestOnly_0237_26MHz_SEMCO_B23.hcd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/BCM4329B1_TestOnly_0237_26MHz_SEMCO_B23.hcd
 
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__MANUFACTURER__/$MANUFACTURER/g > ../../../vendor/$MANUFACTURER/$DEVICE/device-vendor-blobs.mk
@@ -134,6 +133,10 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/softmac:system/etc/firmware/softmac \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/data.patch.hw2_0.bin:system/etc/firmware/data.patch.hw2_0.bin \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/hdmi_init:system/bin/hdmi_init \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/wlan_loader:system/bin/wlan_loader \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/wlan_mac:system/bin/wlan_mac \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/brcm_patchram_plus:system/bin/brcm_patchram_plus \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/BCM4329B1_TestOnly_0237_26MHz_SEMCO_B23.hcd:system/etc/bluez/bcm432x/BCM4329B1_TestOnly_0237_26MHz_SEMCO_B23.hcd \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/shutdown:system/bin/shutdown
 
 EOF
