@@ -354,6 +354,10 @@ on boot
     chown system system /dev/input/event0
     chown system system /dev/input/event1
     chown system system /dev/input/event2
+    chown system system /dev/input/event3
+    chown system system /dev/input/event4
+    chown system system /dev/input/event5
+  
     chown system system /dev/akm8975_dev
     chown system system /dev/akm8975_aot
     chown system system /dev/gsensor
