@@ -267,7 +267,7 @@ vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_wmvdec_sharedlibrary.so:sy
 vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_wmadec_sharedlibrary.so:system/lib/libomx_wmadec_sharedlibrary.so \\
 vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_wavdec_sharedlibrary.so:system/lib/libomx_wavdec_sharedlibrary.so \\
 vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_vp8dec_sharedlibrary.so::system/lib/libomx_vp8dec_sharedlibrary.so \\
-vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_sharedlibrary.so.:system/lib/libomx_sharedlibrary.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_sharedlibrary.so:system/lib/libomx_sharedlibrary.so \\
 vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_rmdec_sharedlibrary.so:system/lib/libomx_rmdec_sharedlibrary.so \\
 vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_radec_sharedlibrary.so:system/lib/libomx_radec_sharedlibrary.so \\
 vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_oggdec_sharedlibrary.so:system/lib/libomx_oggdec_sharedlibrary.so \\
