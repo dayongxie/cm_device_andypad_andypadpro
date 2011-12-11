@@ -93,7 +93,7 @@ mkdir -p ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 
 
 #hw video playback. Again, not sure these are all needed (esp. the codecs)
-	adb pull /system/lib/lib_rk_apedec.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib_rk_apedec.so
+adb pull /system/lib/lib_rk_apedec.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib_rk_apedec.so
 adb pull /system/lib/lib_rk_flacdec.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib_rk_flacdec.so
 adb pull /system/lib/stagefright.ver ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/stagefright.ver
 adb pull /system/lib/libstagefrighthw.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libstagefrighthw.so
@@ -230,8 +230,60 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/wlan_mac:system/bin/wlan_mac \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/brcm_patchram_plus:system/bin/brcm_patchram_plus \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/BCM4329B1_TestOnly_0237_26MHz_SEMCO_B23.hcd:system/etc/bluez/bcm432x/BCM4329B1_TestOnly_0237_26MHz_SEMCO_B23.hcd \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/shutdown:system/bin/shutdown
-
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/shutdown:system/bin/shutdown \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib_rk_apedec.so:system/lib/lib_rk_apedec.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/lib_rk_flacdec.so:system/lib/lib_rk_flacdec.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/stagefright.ver:system/lib/stagefright.ver \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libstagefrighthw.so:system/lib/libstagefrighthw.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libRkDeflatingDecompressor.so:system/lib/libRkDeflatingDecompressor.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/opencore.ver:system/lib/opencore.ver \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/pvplayer.cfg:system/lib/pvplayer.cfg \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencorehw.so:system/lib/libopencorehw.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_wmvlocalreg.so:system/lib/libopencore_wmvlocalreg.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_wmvlocal.so:system/lib/libopencore_wmvlocal.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_webmlocalreg.so:system/lib/libopencore_webmlocalreg.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_webmlocal.so:system/lib/libopencore_webmlocal.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_rtspreg.so:system/lib/libopencore_rtspreg.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_rtsp.so:system/lib/libopencore_rtsp.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_rmlocalreg.so:system/lib/libopencore_rmlocalreg.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_rmlocal.so:system/lib/libopencore_rmlocal.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_player.so:system/lib/libopencore_player.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_net_support.so:system/lib/libopencore_net_support.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_mpglocalreg.so:system/lib/libopencore_mpglocalreg.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_mpglocal.so:system/lib/libopencore_mpglocal.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_mp4localreg.so:system/lib/libopencore_mp4localreg.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_mp4local.so:system/lib/libopencore_mp4local.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_mkvlocalreg.so:system/lib/libopencore_mkvlocalreg.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_mkvlocal.so:system/lib/libopencore_mkvlocal.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_flvlocalreg.so:system/lib/libopencore_flvlocalreg.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_flvlocal.so:system/lib/libopencore_flvlocal.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_downloadreg.so:system/lib/libopencore_downloadreg.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_download.so:system/lib/libopencore_download.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_common.so:system/lib/libopencore_common.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_avilocalreg.so:system/lib/libopencore_avilocalreg.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_avilocal.so:system/lib/libopencore_avilocal.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libopencore_author.so:system/lib/libopencore_author.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_wmvdec_sharedlibrary.so:system/lib/libomx_wmvdec_sharedlibrary.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_wmadec_sharedlibrary.so:system/lib/libomx_wmadec_sharedlibrary.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_wavdec_sharedlibrary.so:system/lib/libomx_wavdec_sharedlibrary.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_vp8dec_sharedlibrary.so::system/lib/libomx_vp8dec_sharedlibrary.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_sharedlibrary.so.:system/lib/libomx_sharedlibrary.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_rmdec_sharedlibrary.so:system/lib/libomx_rmdec_sharedlibrary.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_radec_sharedlibrary.so:system/lib/libomx_radec_sharedlibrary.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_oggdec_sharedlibrary.so:system/lib/libomx_oggdec_sharedlibrary.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_mp3dec_sharedlibrary.so:system/lib/libomx_mp3dec_sharedlibrary.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_m4venc_sharedlibrary.so:system/lib/libomx_m4venc_sharedlibrary.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_m4vdec_sharedlibrary.so:system/lib/libomx_m4vdec_sharedlibrary.so \\ 
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_m2vdec_sharedlibrary.so:system/lib/libomx_m2vdec_sharedlibrary.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_flv1dec_sharedlibrary.so:system/lib/libomx_flv1dec_sharedlibrary.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_dtsdec_sharedlibrary.so:system/lib/libomx_dtsdec_sharedlibrary.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_dradec_sharedlibrary.so:system/lib/libomx_dradec_sharedlibrary.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_avcenc_sharedlibrary.so:system/lib/libomx_avcenc_sharedlibrary.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_avcdec_sharedlibrary.so:system/lib/libomx_avcdec_sharedlibrary.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_amrenc_sharedlibrary.so:system/lib/libomx_amrenc_sharedlibrary.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_amrdec_sharedlibrary.so:system/lib/libomx_amrdec_sharedlibrary.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_ac3dec_sharedlibrary.so:system/lib/libomx_ac3dec_sharedlibrary.so \\
+vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomx_aacdec_sharedlibrary.so:system/lib/libomx_aacdec_sharedlibrary.so 
 EOF
 
 ./setup-makefiles.sh
