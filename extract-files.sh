@@ -92,7 +92,61 @@ mkdir -p ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 #end of these might not be needed..
 
 
-
+#hw video playback. Again, not sure these are all needed (esp. the codecs)
+	adb pull /system/lib/lib_rk_apedec.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib_rk_apedec.so
+adb pull /system/lib/lib_rk_flacdec.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/lib_rk_flacdec.so
+adb pull /system/lib/stagefright.ver ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/stagefright.ver
+adb pull /system/lib/libstagefrighthw.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libstagefrighthw.so
+adb pull /system/lib/libRkDeflatingDecompressor.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libRkDeflatingDecompressor.so
+adb pull /system/lib/opencore.ver ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/opencore.ver
+adb pull /system/lib/pvplayer.cfg ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/pvplayer.cfg
+adb pull /system/lib/libopencorehw.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencorehw.so
+adb pull /system/lib/libopencore_wmvlocalreg.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_wmvlocalreg.so
+adb pull /system/lib/libopencore_wmvlocal.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_wmvlocal.so
+adb pull /system/lib/libopencore_webmlocalreg.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_webmlocalreg.so
+adb pull /system/lib/libopencore_webmlocal.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_webmlocal.so
+adb pull /system/lib/libopencore_rtspreg.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_rtspreg.so
+adb pull /system/lib/libopencore_rtsp.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_rtsp.so
+adb pull /system/lib/libopencore_rmlocalreg.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_rmlocalreg.so
+adb pull /system/lib/libopencore_rmlocal.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_rmlocal.so
+adb pull /system/lib/libopencore_player.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_player.so
+adb pull /system/lib/libopencore_net_support.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_net_support.so
+adb pull /system/lib/libopencore_mpglocalreg.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_mpglocalreg.so
+adb pull /system/lib/libopencore_mpglocal.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_mpglocal.so
+adb pull /system/lib/libopencore_mp4localreg.so../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_mp4localreg.so
+adb pull /system/lib/libopencore_mp4local.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_mp4local.so
+adb pull /system/lib/libopencore_mkvlocalreg.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_mkvlocalreg.so
+adb pull /system/lib/libopencore_mkvlocal.so../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_mkvlocal.so
+adb pull /system/lib/libopencore_flvlocalreg.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_flvlocalreg.so
+adb pull /system/lib/libopencore_flvlocal.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_flvlocal.so
+adb pull /system/lib/libopencore_downloadreg.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_downloadreg.so
+adb pull /system/lib/libopencore_download.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_download.so
+adb pull /system/lib/libopencore_common.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_common.so
+adb pull /system/lib/libopencore_avilocalreg.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_avilocalreg.so
+adb pull /system/lib/libopencore_avilocal.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_avilocal.so
+adb pull /system/lib/libopencore_author.so../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libopencore_author.so
+adb pull /system/lib/libomx_wmvdec_sharedlibrary.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libomx_wmvdec_sharedlibrary.so
+adb pull /system/lib/libomx_wmadec_sharedlibrary.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libomx_wmadec_sharedlibrary.so
+adb pull /system/lib/libomx_wavdec_sharedlibrary.so../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libomx_wavdec_sharedlibrary.so
+adb pull /system/lib/libomx_vp8dec_sharedlibrary.so../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libomx_vp8dec_sharedlibrary.so
+adb pull /system/lib/libomx_sharedlibrary.so../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libomx_sharedlibrary.so
+adb pull /system/lib/libomx_rmdec_sharedlibrary.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libomx_rmdec_sharedlibrary.so
+adb pull /system/lib/libomx_radec_sharedlibrary.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libomx_radec_sharedlibrary.so
+adb pull /system/lib/libomx_oggdec_sharedlibrary.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libomx_oggdec_sharedlibrary.so
+adb pull /system/lib/libomx_mp3dec_sharedlibrary.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libomx_mp3dec_sharedlibrary.so
+adb pull /system/lib/libomx_m4venc_sharedlibrary.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libomx_m4venc_sharedlibrary.so
+adb pull /system/lib/libomx_m4vdec_sharedlibrary.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libomx_m4vdec_sharedlibrary.so
+adb pull /system/lib/libomx_m2vdec_sharedlibrary.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libomx_m2vdec_sharedlibrary.so
+adb pull /system/lib/libomx_flv1dec_sharedlibrary.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libomx_flv1dec_sharedlibrary.so
+adb pull /system/lib/libomx_dtsdec_sharedlibrary.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libomx_dtsdec_sharedlibrary.so
+adb pull /system/lib/libomx_dradec_sharedlibrary.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libomx_dradec_sharedlibrary.so
+adb pull /system/lib/libomx_avcenc_sharedlibrary.so../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libomx_avcenc_sharedlibrary.so
+adb pull /system/lib/libomx_avcdec_sharedlibrary.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libomx_avcdec_sharedlibrary.so
+adb pull /system/lib/libomx_amrenc_sharedlibrary.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libomx_amrenc_sharedlibrary.so
+adb pull /system/lib/libomx_amrdec_sharedlibrary.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libomx_amrdec_sharedlibrary.so
+adb pull /system/lib/libomx_ac3dec_sharedlibrary.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libomx_ac3dec_sharedlibrary.so
+adb pull /system/lib/libomx_aacdec_sharedlibrary.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/libomx_aacdec_sharedlibrary.so
+# end of hw video playback
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__MANUFACTURER__/$MANUFACTURER/g > ../../../vendor/$MANUFACTURER/$DEVICE/device-vendor-blobs.mk
 # Copyright (C) 2010 The Android Open Source Project
