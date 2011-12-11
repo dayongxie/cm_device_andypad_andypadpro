@@ -1,5 +1,4 @@
 USE_CAMERA_STUB := true
-BOARD_USES_GENERIC_AUDIO := true
 
 # inherit from the proprietary version
 -include vendor/andypad/andypadpro/BoardConfigVendor.mk
