@@ -14,3 +14,5 @@ media.stagefright.enable-meta=true
 media.stagefright.enable-scan=true
 media.stagefright.enable-http=true
 debug.sf.hw=1
+ro.telephony.default_network=0
+
