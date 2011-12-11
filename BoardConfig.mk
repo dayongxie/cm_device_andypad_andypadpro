@@ -1,8 +1,15 @@
 USE_CAMERA_STUB := true
+
 BOARD_USES_GENERIC_AUDIO := true
+BOARD_FIRST_CAMERA_FRONT_FACING := true
+
 
 # inherit from the proprietary version
 -include vendor/andypad/andypadpro/BoardConfigVendor.mk
+BOARD_USES_GENERIC_AUDIO := false
+BOARD_PREBUILT_LIBAUDIO := true
+
+
 
 TARGET_NO_BOOTLOADER := true
 TARGET_BOARD_PLATFORM := andypadpro
@@ -30,6 +37,18 @@ WIFI_DRIVER_MODULE_ARG      := ""
 WIFI_DRIVER_MODULE_NAME     := "wlan"
 
 BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+
+BOARD_HAVE_FM_RADIO := false
 
 BOARD_EGL_CFG := device/andypad/andypadpro/egl.cfg
 BOARD_NO_RGBX_8888 := true
+TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
+
+TARGET_OVERLAY_ALWAYS_DETERMINES_FORMAT := true
+
+WITH_JIT := true
+JS_ENGINE := v8
+
+
+
