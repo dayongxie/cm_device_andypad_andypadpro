@@ -1,0 +1,5 @@
+# mount point   fstype      device                  [device2]
+/boot       	mtd         boot
+/recovery      	mtd         recovery
+/misc           mtd         misc
+
