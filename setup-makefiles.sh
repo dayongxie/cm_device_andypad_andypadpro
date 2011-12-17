@@ -43,7 +43,7 @@ MAKEFILE=../../../$OUTDIR/$DEVICE-vendor-blobs.mk
 PRODUCT_COPY_FILES := \\
     $OUTDIR/proprietary/system/lib/libcamera.so:obj/lib/libcamera.so \\
     $OUTDIR/proprietary/system/lib/libaudio.so:obj/lib/libaudio.so \\
-    $OUTDIR/proprietary/system/lib/libaudiopolicy.so:obj/lib/libaudiopolicy.so \\
+    $OUTDIR/proprietary/system/lib/libaudiopolicy.so:obj/lib/libaudiopolicy.so 
 PRODUCT_COPY_FILES += \\
 EOF
 
