@@ -2,24 +2,19 @@
 
 # inherit from the proprietary version
 -include vendor/andypad/andypadpro/BoardConfigVendor.mk
-
-
 TARGET_NO_BOOTLOADER := true
+
 TARGET_BOARD_PLATFORM := andypadpro
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_BOOTLOADER_BOARD_NAME := rk29board
-TARGET_OTA_ASSERT_DEVICE := andypad,andypadpro
-
 
 TARGET_PROVIDES_INIT_RC := true
-BOARD_USE_FROYO_LIBCAMERA := true
+
 TARGET_NO_KERNEL := true
-TARGET_NO_BOOTLOADER := true
-TARGET_NO_RADIOIMAGE := true
-TARGET_NO_RECOVERY := true
+
 # fix this up by examining /proc/mtd on a running device
 
 BOARD_BOOTIMAGE_PARTITION_SIZE :=     0x00400000
@@ -28,28 +23,22 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE :=   0x10000000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x40000000
 BOARD_FLASH_BLOCK_SIZE := 16384
 
+# Wifi related defines
 WPA_SUPPLICANT_VERSION := VER_0_6_X
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/wlan.ko"
-WIFI_DRIVER_MODULE_ARG      := ""
-WIFI_DRIVER_MODULE_NAME     := "wlan"
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
+WIFI_DRIVER_MODULE_ARG := ""
+WIFI_DRIVER_MODULE_NAME := "wlan"
 
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
 BOARD_HAVE_FM_RADIO := false
 
-JS_ENGINE := v8
-
 BOARD_EGL_CFG := device/andypad/andypadpro/egl.cfg
 BOARD_NO_RGBX_8888 := true
-BOARD_HAS_LIMITED_EGL := true
-# Touchscreen
-BOARD_USE_LEGACY_TOUCHSCREEN := true
 
-# Sensors
-TARGET_USES_OLD_LIBSENSORS_HAL := true
-
+BOARD_USE_FROYO_LIBCAMERA := true
 
 
 

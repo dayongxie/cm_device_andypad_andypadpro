@@ -240,15 +240,15 @@ on boot
 
 # Define the memory thresholds at which the above process classes will
 # be killed.  These numbers are in pages (4k).
-    setprop ro.FOREGROUND_APP_MEM 1536
-    setprop ro.VISIBLE_APP_MEM 2048
-    setprop ro.PERCEPTIBLE_APP_MEM 2048
-    setprop ro.HEAVY_WEIGHT_APP_MEM 2048
-    setprop ro.SECONDARY_SERVER_MEM 4096
-    setprop ro.BACKUP_APP_MEM 4096
-    setprop ro.HOME_APP_MEM 4096
-    setprop ro.HIDDEN_APP_MEM 5120
-    setprop ro.EMPTY_APP_MEM 6144
+    setprop ro.FOREGROUND_APP_MEM 2048
+    setprop ro.VISIBLE_APP_MEM 3072
+    setprop ro.PERCEPTIBLE_APP_MEM 4096
+    setprop ro.HEAVY_WEIGHT_APP_MEM 4096
+    setprop ro.SECONDARY_SERVER_MEM 6144
+    setprop ro.BACKUP_APP_MEM 6144
+    setprop ro.HOME_APP_MEM 6144
+    setprop ro.HIDDEN_APP_MEM 7168
+    setprop ro.EMPTY_APP_MEM 8192
 
 # Write value must be consistent with the above properties.
 # Note that the driver only supports 6 slots, so we have combined some of
@@ -258,7 +258,7 @@ on boot
 
     write /proc/sys/vm/overcommit_memory 1
     write /proc/sys/vm/min_free_order_shift 4
-    write /sys/module/lowmemorykiller/parameters/minfree 1536,2048,3072,4096,5120,6144
+    write /sys/module/lowmemorykiller/parameters/minfree 2048,3072,4096,6144,7168,8192
 
     # Set init its forked children's oom_adj.
     write /proc/1/oom_adj -16
@@ -305,31 +305,9 @@ on boot
     chown system system /sys/kernel/ipv4/tcp_rmem_def
     chown system system /sys/kernel/ipv4/tcp_rmem_max
     chown root radio /proc/cmdline
-    chown system system /sys/class/backlight/rk28_bl/brightness
 
-    # bluetooth power up/down interface
-    chmod 0660 /dev/ttyS0
-    chmod 0660 /dev/ttyS2
-    chmod 0660 /dev/vflash
-    chown bluetooth bluetooth /dev/vflash
-    chown bluetooth bluetooth /dev/ttyS2
-    chown bluetooth bluetooth /dev/ttyS0
-    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
-    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
-    chmod 0777 /sys/class/rfkill/rfkill0/state 
-
-    # wisky qumeng 20110705 HDMI
-    chmod 777 /sys/class/hdmi/hdmi-0/enable
-    chmod 777 /sys/class/hdmi/hdmi-0/state
-
-    # for HDMI facility
-    chown system system /dev/anx7150
-
-    # for TvOut facility
-    chown system system /dev/rk1000_TVOUT
-
-    # Define TCP buffer sizes for various networks
-    #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
+# Define TCP buffer sizes for various networks
+#   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
     setprop net.tcp.buffersize.default 4096,87380,110208,4096,16384,110208
     setprop net.tcp.buffersize.wifi    4095,87380,110208,4096,16384,110208
     setprop net.tcp.buffersize.umts    4094,87380,110208,4096,16384,110208
@@ -340,8 +318,6 @@ on boot
     chmod 0666 /dev/galcore
     chown system camera /dev/video0
     chmod 0660 /dev/video0
-    chown system camera /dev/video1
-    chmod 0660 /dev/video1
     chown system camera /dev/pmem_cam
     chmod 0660 /dev/pmem_cam
     chown system system /dev/vpu_mem
@@ -354,14 +330,6 @@ on boot
     chown system system /dev/input/event0
     chown system system /dev/input/event1
     chown system system /dev/input/event2
-    chown system system /dev/input/event3
-    chown system system /dev/input/event4
-    chown system system /dev/input/event5
-  
-    chown system system /dev/akm8975_dev
-    chown system system /dev/akm8975_aot
-    chown system system /dev/gsensor
-    chown system system /dev/lightsensor
     chown system system /dev/mma8452_daemon
 
     chown system system /sys/class/backlight/rk28_bl/brightness
@@ -423,7 +391,7 @@ service ril-daemon /system/bin/rild
     socket rild stream 660 root radio
     socket rild-debug stream 660 radio system
     user root
-    group radio cache inet misc audio sdcard_rw net_admin net_raw
+    group radio cache inet misc audio sdcard_rw net_admin net_raw qcom_oncrpc diag
 
 service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-system-server
     socket zygote stream 666
@@ -433,7 +401,6 @@ service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-sys
     onrestart restart netd
 
 service media /system/bin/mediaserver
-    socket vpu_server stream 666 media media
     user media
     group system audio camera graphics inet net_bt net_bt_admin net_raw
     ioprio rt 4
@@ -517,27 +484,6 @@ service dhcpcd_wlan0 /system/bin/dhcpcd -ABKL wlan0
     disabled
     oneshot
 
-
-service init_bq27510 /init_battery.sh
-    oneshot
-
-service hciattach /system/bin/hciattach -n -s 1500000 /dev/ttyS2 bcm4329 1500000 flow
-    console
-    user bluetooth
-    group bluetooth net_bt_admin
-    disabled
-    oneshot
-
-service patch_plus /system/bin/brcm_patchram_plus --patchram /etc/bluez/bcm432x/BCM4329B1_TestOnly_0237_26MHz_SEMCO_B23.hcd --baudrate 1500000 --enable_hci /dev/ttyS2
-    console
-    user bluetooth
-    group bluetooth net_bt_admin
-    disabled
-    oneshot
-
-service wlan_loader /system/bin/wlan_loader
-    oneshot
-    disabled
 
 #-------------------------------------------------------#
 # akmd
