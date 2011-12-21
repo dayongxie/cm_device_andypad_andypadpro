@@ -13,7 +13,10 @@ TARGET_BOOTLOADER_BOARD_NAME := rk29board
 
 TARGET_PROVIDES_INIT_RC := true
 
+TARGET_NO_BOOTLOADER := true
 TARGET_NO_KERNEL := true
+TARGET_NO_RADIOIMAGE := true
+TARGET_NO_RECOVERY := true
 
 # fix this up by examining /proc/mtd on a running device
 
@@ -37,11 +40,10 @@ BOARD_HAVE_FM_RADIO := false
 
 BOARD_EGL_CFG := device/andypad/andypadpro/egl.cfg
 BOARD_NO_RGBX_8888 := true
-
-BOARD_USE_FROYO_LIBCAMERA := true
-
+TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
 
 
+TARGET_PROVIDES_LIBLIGHTS := true
 
 
 
